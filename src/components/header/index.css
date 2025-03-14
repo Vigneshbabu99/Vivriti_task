@@ -1,0 +1,12 @@
+.headleft {
+	width: 10%;
+}
+.headcenter {
+	width: 700px !important;
+}
+.headoption .head_p {
+	padding: 0px 10px;
+}
+.MuiOutlinedInput-root {
+	border-radius: 45px !important;
+}
