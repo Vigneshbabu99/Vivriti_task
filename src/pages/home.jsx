@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Card, CardMedia, CardContent, Typography, Grid, CircularProgress, Container, Checkbox, Pagination } from "@mui/material";
-import { fetchProducts } from "../../redux/slices/productSlice";
-import Button from '@mui/joy/Button';
+import { Card, CardMedia, CardContent, Typography, Grid, Container, Checkbox, Pagination, Rating, Stack } from "@mui/material";
 import './home.css'
-import { Favorite, FavoriteBorder, Label } from "@mui/icons-material";
-import SearchBox from "./searchbox";
-import PaginationRounded from "./pagenation";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import { fetchProducts } from "../redux/slices/productSlice";
+import SearchBox from "../components/searchbox";
+import CircularProgress from '@mui/joy/CircularProgress';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const {  productData, loading, error } = useSelector((state) => state.products);
+  const {  productData , loading,error } = useSelector((state) => state.products);
   
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8; // Show 8 products per page
+  const itemsPerPage = 8; 
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -31,10 +30,14 @@ const Home = () => {
       <Container sx={{ mt: 3 }}>
         <div className="topadd_box">
           <h1> Products</h1>
-          <p>E-commerce (short for electronic commerce) refers to the buying and selling of goods and services over the internet. It includes various types of online transactions, such as online shopping, electronic payments, internet banking, and digital marketplaces.</p>
+          <p style={{color:"#b9bcc1"}}>Slash Sale begins in june.Get up to 80% Discounton all product 
+            <a style={{color:"#fff",fontWidth : "bold"}}> READ MORE</a>
+          </p>
          </div>
         <SearchBox />
-        {currentProducts.length !==0 ?
+        {loading ?<div style={{textAlign:"center" }}><CircularProgress variant="outlined"  /></div>:
+        
+        (currentProducts.length !==0 ?
         <Grid className="fulbox" container spacing={3}>
           {currentProducts.map((product) => (
             <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
@@ -57,11 +60,14 @@ const Home = () => {
                   <Typography className="boxprice" variant="h6">
                     ${product.price}
                   </Typography>
+                  <Stack className="rating" spacing={1}>
+                    <Rating name="size-medium" defaultValue={2} />
+                  </Stack>
                 </CardContent>
               </Card>
             </Grid>
           ))}
-        </Grid>:<h1 style={{textAlign:"center"}}>No Produts Found ..</h1>}
+        </Grid>:<h1 style={{textAlign:"center"}}>No Produts Found ..</h1>)}
 
       
         <Pagination className="pagenation"

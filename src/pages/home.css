@@ -1,13 +1,13 @@
 .productbox {
 	border: 1px solid #e5e7eb;
 	border-radius: 10px !important;
-	height: 70vh;
+	height: 75vh;
 }
 .imgbox {
 	height: 55%;
 }
 .textbox {
-	height: 22vh;
+	height: 24vh;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -52,7 +52,7 @@
 	padding: 15px 0;
 }
 .topadd_box {
-	height: 140px;
+	height: 110px;
 	background: linear-gradient(to right, #333333, #d2554b);
 	border-radius: 25px;
 	margin: 25px 0;
@@ -66,4 +66,10 @@
 	margin: 0 auto;
 	width: 97%;
 	color: #fff;
+}
+.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.Mui-checked, .css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+	color: red !important;
+}
+.rating {
+	width: 100%;
 }

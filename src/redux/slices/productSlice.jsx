@@ -8,12 +8,9 @@ export const fetchProducts = createAsyncThunk("fetchProducts", async (value) => 
       : value?.category
       ? `https://dummyjson.com/products/category/${value.category}`
       : "https://dummyjson.com/products"
-  );
-  console.log('value',response);
-  
+  );  
   return response.data.products;
 });
-
 
 const productSlice = createSlice({
   name: "products",
@@ -23,6 +20,7 @@ const productSlice = createSlice({
     error: null,
   },
   reducers: {},
+  
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {

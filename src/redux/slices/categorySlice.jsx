@@ -11,9 +11,9 @@ const categorySlice = createSlice({
   name: "categories",
   initialState: {
     categorieData: [],
+    searchQuery: "",
     loading: false,
     error: null,
-    searchQuery: "",
   },
   reducers: {
     setSearchQuery: (state, action) => {

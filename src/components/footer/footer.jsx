@@ -65,11 +65,10 @@ export default function Footer() {
         <Box mt={5}>
           <Typography variant="body2" color="text.secondary" align="center">
             {"Copyright © "}
-            <Link color="inherit" href="https://your-website.com/">
-              Your Website
-            </Link>{" "}
+            <Link color="inherit" href="#">
+              Moboom 
+            </Link>&nbsp;
             {new Date().getFullYear()}
-            {"."}
           </Typography>
         </Box>
       </Container>

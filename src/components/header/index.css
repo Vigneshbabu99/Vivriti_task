@@ -8,5 +8,8 @@
 	padding: 0px 10px;
 }
 .MuiOutlinedInput-root {
-	border-radius: 45px !important;
+	border-radius: 15px !important;
+}
+.headsearchbar{
+	color:#6b7280;
 }

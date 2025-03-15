@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCategories } from "../../redux/slices/categorySlice";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
-import "./home.css";
-import { fetchProducts } from "../../redux/slices/productSlice";
+import '../pages/home.css';
+import { fetchCategories } from "../redux/slices/categorySlice";
+import { fetchProducts } from "../redux/slices/productSlice";
 
 function sleep(duration) {
   return new Promise((resolve) => {
@@ -15,7 +15,7 @@ function sleep(duration) {
   });
 }
 
-export default function Home() {
+export default function SearchBox() {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,15 +33,13 @@ export default function Home() {
       setLoading(true);
       await sleep(1000);
       setLoading(false);
-      setOptions([...categorieData]); // Populate options on open
+      setOptions([...categorieData]); 
     })();
   };
 
   const handleChange = (event, newValue) => {
-   
-      event?.preventDefault(); // Prevent form submission
-      dispatch(fetchProducts({category:newValue?.slug})); // Dispatch action to fetch products based on category
-  
+      event?.preventDefault(); 
+      dispatch(fetchProducts({category:newValue?.slug}));
   };
 
   return (
